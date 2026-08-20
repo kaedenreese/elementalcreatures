@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -12,7 +13,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::orderBy('date', 'asc')->orderBy('name', 'asc')->get();
+
+        return view('admin.events.index', ['events' => $events]);
     }
 
     /**
@@ -20,7 +23,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.events.create');
     }
 
     /**
@@ -28,7 +31,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:128|string',
+            'description' => 'required|string|max:2048',
+            'address' => 'nullable|string|max:256',
+            'date' => 'date|required',
+            'priority' => 'integer|nullable'
+        ]);
+
+        if($request->has('online')) $validated['online'] = 1;
+        if($request->has('recurring')) $validated['recurring'] = 1;
+
+        $event = new Event($validated);
+
+        $event->save();
+
+        return redirect()->route('admin.events.index')->with('message', "Event {$event->name} created!");
     }
 
     /**
@@ -44,7 +62,9 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('admin.events.edit', ['event' => $event]);
     }
 
     /**
@@ -52,7 +72,23 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:128|string',
+            'description' => 'required|string|max:2048',
+            'address' => 'nullable|string|max:256',
+            'date' => 'date|required',
+            'priority' => 'integer|nullable'
+        ]);
+
+        if($request->has('online')) $validated['online'] = 1;
+        else $validated['online'] = 0;
+        if($request->has('recurring')) $validated['recurring'] = 1;
+        else $validated['recurring'] = 0;
+
+        $event = Event::findOrFail($id);
+        $event->update($validated);
+
+        return redirect()->route('admin.events.index')->with('message', "Event {$event->name} updated!");
     }
 
     /**
@@ -60,6 +96,9 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+
+        return redirect()->route('admin.events.index')->with('message', "Event {$event->name} deleted!");
     }
 }
