@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CardSetController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\EffectTypeController;
 use App\Http\Controllers\Admin\ElementController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\RetailerController as AdminRetailerController;
 use App\Http\Controllers\Admin\SpeciesController;
 use App\Http\Controllers\Api\CardController;
@@ -35,7 +36,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         Route::view('dashboard', 'admin.dashboard')->name('dashboard');
 
         Route::resource('cardsets', CardSetController::class);
-        Route::resource('events', EventController::class);
+        Route::resource('events', AdminEventController::class);
         Route::resource('retailers', AdminRetailerController::class);
         Route::resource('elements', ElementController::class);
         Route::resource('effecttypes', EffectTypeController::class);
