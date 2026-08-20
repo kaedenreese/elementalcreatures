@@ -15,9 +15,14 @@
                 <label for="name">Set Name</label>
                 <input type="textbox" id="name" name="name" required value="{{ old('name') }}">
                 <label for="description">Description</label>
-                <input type="textbox" id="description" name="description" required value="{{ old('description') }}">
+                <input type="textbox" id="description" name="description" value="{{ old('description') }}">
                 <label for="release_date">Release Date</label>
                 <input type="datetime-local" id="release_date" name="release_date" value="2026-08-20T06:00" value="{{ old('release_date') }}">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="error">{{ $error }}</div>
+                    @endforeach
+                @endif
                 <button type="submit" class="site-button">Save</button>
             </form>
         </div>

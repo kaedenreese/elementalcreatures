@@ -15,7 +15,12 @@
                 <label for="name">Element Name</label>
                 <input type="textbox" id="name" name="name" required value="{{ old('name') }}">
                 <label for="description">Description</label>
-                <input type="textbox" id="description" name="description" required value="{{ old('description') }}">
+                <input type="textbox" id="description" name="description" value="{{ old('description') }}">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="error">{{ $error }}</div>
+                    @endforeach
+                @endif
                 <button type="submit" class="site-button">Save</button>
             </form>
         </div>

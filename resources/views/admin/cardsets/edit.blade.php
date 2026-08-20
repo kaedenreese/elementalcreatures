@@ -19,6 +19,11 @@
                 <input type="textbox" id="description" name="description" required value="{{ old('description') ?? $cardset->description }}">
                 <label for="release_date">Release Date</label>
                 <input type="datetime-local" id="release_date" name="release_date" value="{{ old('release_date') ?? $cardset->release_date }}">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="error">{{ $error }}</div>
+                    @endforeach
+                @endif
                 <button type="submit" class="site-button">Update</button>
             </form>
         </div>
