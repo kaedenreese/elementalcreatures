@@ -87,7 +87,7 @@ class RetailerController extends Controller
     public function destroy(string $id)
     {
         $retailer = Retailer::findOrFail($id);
-        $retailer->destroy();
+        $retailer->delete();
 
         return redirect()->route('admin.retailers.index')->with('message', "Retailer {$retailer->name} deleted!");
     }

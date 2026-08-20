@@ -28,6 +28,10 @@
                 @endif
                 <button type="submit" class="site-button">Save</button>
             </form>
+            <form method="post" action="{{ route('admin.retailers.destroy', ['retailer' => $retailer->id]) }}" onsubmit="return confirm('This will permanently delete this retailer. Are you sure?');">
+                @method('delete')
+                <button type="submit" class="site-button">Delete</button>
+            </form>
         </div>
     </main>
 </body>
