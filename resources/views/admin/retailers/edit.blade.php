@@ -16,7 +16,7 @@
                 <label for="name">Retailer Name</label>
                 <input type="textbox" id="name" name="name" required value="{{ old('name') ?? $retailer->name }}">
                 <label for="address">Retailer Address</label>
-                <input type="textbox" id="address" name="address" value="{{ old('address') ?? $retailer->address }}">
+                <textarea id="address" name="address">{{ old('address') ?? $retailer->address }}</textarea>
                 <label for="website">Retailer Website</label>
                 <input type="textbox" id="website" name="website" value="{{ old('website') ?? $retailer->website }}">
                 <label for="priority">Retailer Priority</label>

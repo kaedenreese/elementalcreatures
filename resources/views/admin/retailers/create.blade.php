@@ -15,7 +15,7 @@
                 <label for="name">Retailer Name</label>
                 <input type="textbox" id="name" name="name" required value="{{ old('name') }}">
                 <label for="address">Retailer Address</label>
-                <input type="textbox" id="address" name="address" value="{{ old('address') }}">
+                <textarea type="textbox" id="address" name="address">{{ old('address') }}</textarea>
                 <label for="website">Retailer Website</label>
                 <input type="textbox" id="website" name="website" value="{{ old('website') }}">
                 @if ($errors->any())

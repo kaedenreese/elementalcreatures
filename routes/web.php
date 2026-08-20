@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CardController as AdminCardController;
 use App\Http\Controllers\Admin\CardSetController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\EffectTypeController;
@@ -40,7 +41,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         Route::resource('retailers', AdminRetailerController::class);
         Route::resource('elements', ElementController::class);
         Route::resource('effecttypes', EffectTypeController::class);
-        Route::resource('cards', CardController::class);
+        Route::resource('cards', AdminCardController::class);
         Route::resource('species', SpeciesController::class);
         
         Route::get('contactus', [ContactUsController::class, 'index'])->name('contactus');
