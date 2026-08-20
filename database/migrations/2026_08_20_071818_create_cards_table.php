@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('name', 64);
             $table->foreignIdFor(CardSet::class)->constrained()->onDelete('cascade');
             $table->integer('power');
-            $table->string('effect', 128);
+            $table->string('effect', 1024);
             $table->integer('number');
+            $table->integer('level');
             $table->foreignIdFor(Species::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(EffectType::class)->constrained()->onDelete('cascade');
             $table->timestamps();

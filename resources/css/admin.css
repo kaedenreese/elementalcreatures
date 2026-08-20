@@ -255,3 +255,31 @@ nav ul {
 .cardset_label {
     font-size: 12px;
 }
+
+/* CHECKBOXES */
+
+.multi-select-checkboxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + .hover-to-select {
+    background-color: var(--search-include);
+    color: black;
+}
+
+.hover-to-select {
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hover-to-select:hover {
+    background-color: var(--link-color);
+}
