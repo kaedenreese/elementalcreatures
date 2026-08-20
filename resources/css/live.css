@@ -1,0 +1,145 @@
+::backdrop {
+  background-color: rgb(49, 49, 49);
+  opacity: 0.75;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-size: 24px;
+}
+
+@media (max-width: 800px) {
+    body {
+        height: calc(100% - 50px);
+        background-image: url('../images/background_rotated.webp');
+    }
+}
+
+.back-to-site {
+    position: fixed;
+    display: flex;
+    gap: 20px;
+    top: 10px;
+    left: 10px;
+}
+
+.back-to-site-button {
+    width: 100%;
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: purple;
+    outline: none;
+    border: 2px solid purple;
+    font-weight: 800;
+    cursor: pointer;
+    max-width: 200px;
+}
+
+.back-to-site-button:focus {
+    border: 2px solid white;
+}
+
+.back-to-site-button:hover {
+    background-color: rgb(201, 18, 201);
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+@media (max-width: 800px) {
+    .game-wrapper {
+        flex-direction: column;
+    }
+}
+
+.player-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex: 1;
+    align-items: center;
+    transition-duration: 0.5s;
+}
+
+input[type="textbox"], input[type="number"] {
+    background-color: gray;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid gray;
+    font-size: 24px;
+    color: white;
+    width: 100px;
+}
+
+input[type="textbox"]:focus, input[type="number"]:focus {
+    border: 2px solid white;
+}
+
+.controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.round-number {
+    font-size: 48px;
+}
+
+.player-one-points, .player-two-points {
+    font-size: 48px;
+}
+
+@media (max-width: 800px) {
+    .game-wrapper {
+        margin-top: 50px;
+        height: calc(100% - 50px);
+    }
+
+    .player-wrapper {
+        gap: 10px;
+    }
+}
+
+.score-alter {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.player-one-power-up, .player-one-power-down, .player-two-power-up, .player-two-power-down, .modal-button {
+    width: 150px;
+    height: 50px;
+    background-color: purple;
+    border: 2px solid purple;
+    cursor: pointer;
+    color: white;
+    font-size: 36px;
+    user-select: none;
+    text-align: center;
+    border-radius: 10px;
+    touch-action: manipulation;
+}
+
+#modal {
+    background-color: rgb(34, 34, 34);
+    padding: 10px;
+    color: white;
+    margin-top: 300px;
+}
+
+.do-flip {
+    transform: rotate(180deg);
+    transition-duration: 0.5s;
+}

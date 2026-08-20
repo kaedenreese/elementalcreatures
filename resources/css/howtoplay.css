@@ -1,0 +1,126 @@
+main {
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    border-top: 1px solid rgb(93, 93, 255);
+    border-bottom: 1px solid rgb(93, 93, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    text-align: center;
+    border-top: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgb(51, 51, 51);
+}
+
+h4 {
+    font-size: 16px;
+    border-bottom: 1px solid white;
+}
+
+aside {
+    border-top: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.table-of-contents {
+    list-style-type: none;
+}
+
+.table-of-contents li {
+    margin-bottom: 10px;
+}
+
+.table-of-contents-bullet {
+    height: 22px;
+}
+
+@media (max-width: 799px) {
+    p {
+        font-size: 16px;
+        line-height: 1.5rem;
+    }
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-2-6 {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.golden-header {
+    color: black;
+    background: #fcffcf;
+    background: linear-gradient(317deg,rgba(252, 255, 207, 1) 0%, rgba(255, 248, 117, 1) 50%, rgba(253, 255, 153, 1) 100%);
+}
+
+.quote {
+    width: 80%;
+    max-width: 500px;
+    font-size: 14px;
+    line-height: 1.3rem;
+    margin: 0 auto;
+}
+
+.signature {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.frontline {
+    color: rgb(202, 0, 0);
+}
+
+.sideline {
+    color: rgb(21, 21, 255);
+}
+
+.accent-box {
+    border: 1px solid purple;
+    padding: 10px;
+    text-align: center;
+}
+
+.return-to-top {
+    text-align: right;
+    font-size: 12px;
+}
+
+.how-to-play-float-right {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    max-width: 90px;
+    max-height: 70px;
+}
+
+.how-to-play-float-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    max-width: 90px;
+    max-height: 70px;
+}
