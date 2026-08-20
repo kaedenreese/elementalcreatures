@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('card_sets', function (Blueprint $table) {
             $table->id();
             $table->string('name', 64);
-            $table->string('description', 2048);
+            $table->string('description', 2048)->nullable(true);
             $table->timestamp('release_date');
             $table->timestamps();
         });

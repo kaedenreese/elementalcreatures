@@ -33,7 +33,7 @@ class ElementController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:64',
-            'description' => 'string|max:2047'
+            'description' => 'string|max:2047|nullable'
         ]);
 
         $element = new CardElement($validated);
@@ -68,7 +68,7 @@ class ElementController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:64',
-            'description' => 'string|max:2047'
+            'description' => 'string|max:2047|nullable'
         ]);
 
         $element = CardElement::findOrFail($id);

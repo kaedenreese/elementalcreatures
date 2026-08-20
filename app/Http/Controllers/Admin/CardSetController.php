@@ -33,7 +33,7 @@ class CardSetController extends Controller
     {
         $validated = $request->validate([
             'name' => 'string|max:64|required',
-            'description' => 'string|max:2047',
+            'description' => 'string|max:2047|nullable',
             'release_date' => 'date'
         ]);
 
@@ -68,7 +68,7 @@ class CardSetController extends Controller
     {
         $validated = $request->validate([
             'name' => 'string|max:64|required',
-            'description' => 'string|max:2047',
+            'description' => 'string|max:2047|nullable',
             'release_date' => 'date'
         ]);
 

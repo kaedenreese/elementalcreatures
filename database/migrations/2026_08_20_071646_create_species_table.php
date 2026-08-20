@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('species', function (Blueprint $table) {
             $table->id();
             $table->string('name', 64);
-            $table->string('description', 2047);
+            $table->string('description', 2047)->nullable(true);
             $table->timestamps();
         });
     }
