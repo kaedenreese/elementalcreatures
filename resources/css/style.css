@@ -365,13 +365,15 @@ footer p {
 
 .retailer-address {
     color: var(--muted-text-color);
-    font-size: 16px;
+    font-weight: 0;
     line-height: 1.5rem;
+    letter-spacing: 0.1rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .retailer-data {
-    margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .event-data {

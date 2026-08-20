@@ -227,6 +227,17 @@ form input[type="email"], form input[type="textbox"], form input[type="number"],
     margin-bottom: 10px;
 }
 
+textarea {
+    background-color: transparent;
+    padding: 5px;
+    color: var(--text-color);
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
 nav ul {
     list-style: none;
     padding-inline-start: 0;
@@ -239,4 +250,8 @@ nav ul {
 .session-message {
     color: green;
     text-align: center;
+}
+
+.cardset_label {
+    font-size: 12px;
 }

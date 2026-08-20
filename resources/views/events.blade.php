@@ -23,9 +23,9 @@
                     @endif
                     @foreach ($events as $event)
                         <div class="event-data">
-                            <h4>{{ event->name }}</h4>
-                            <div class="retailer-address">{{ event->description }}</div>
-                            <div class="retailer-address">{{ event->date }}</div>
+                            <h4>{{ $event->name }}</h4>
+                            <div class="retailer-address">{{ $event->date }}</div>
+                            <div class="retailer-address">{{ $event->description }}</div>
                         </div>
                     @endforeach
                 </div>

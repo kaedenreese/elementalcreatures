@@ -145,7 +145,7 @@
             <div class="return-to-top"><a href="#">Return to Top</a></div>
         </section>
 
-        <<section>
+        <section>
             <div class="header-spacer" id="elementguide"></div>
             <h2>Element Guide</h2>
             <img src="../images/howtoplay/elements.webp" alt="Element Guide" class="img-fit">
