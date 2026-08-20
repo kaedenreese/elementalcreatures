@@ -25,4 +25,9 @@ class Card extends Model
     {
         return $this->belongsTo(CardSet::class);
     }
+
+    public function effect_type(): BelongsTo
+    {
+        return $this->belongsTo(EffectType::class);
+    }
 }

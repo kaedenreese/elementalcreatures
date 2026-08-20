@@ -154,7 +154,7 @@ h4 {
 }
 
 .main-logo {
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 10px;
     height: 100px;

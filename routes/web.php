@@ -31,7 +31,7 @@ Route::view('/howtoplay', 'howtoplay')->name('howtoplay');
 Route::view('/live', 'live')->name('live');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
-Route::get('/api/cards', [CardController::class]);
+Route::get('/api/cards', CardController::class);
 
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         Route::view('dashboard', 'admin.dashboard')->name('dashboard');
