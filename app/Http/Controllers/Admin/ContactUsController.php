@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -12,7 +13,9 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        //
+        $contactus = ContactUs::orderBy('created_at', 'desc')->get();
+
+        return view('admin.contactus.index', ['contactus' => $contactus]);
     }
 
     /**
@@ -36,7 +39,9 @@ class ContactUsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $contactus = ContactUs::findOrFail($id);
+
+        return view('admin.contactus.show', [$contactus => $contactus]);
     }
 
     /**
@@ -60,6 +65,10 @@ class ContactUsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $contactus = ContactUs::findOrFail($id);
+
+        $contactus->delete();
+
+        return redirect()->route('admin.contactus.index');
     }
 }

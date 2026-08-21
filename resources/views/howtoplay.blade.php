@@ -30,7 +30,6 @@
         </nav>
 
         <section>
-            <img src="/images/creatures/sets/1/062.webp" class="how-to-play-float-right" alt="Elemental Creature">
             <div class="header-spacer" id="message"></div>
             <h2>A Message from Justin Hartsock</h2>
             <p class="quote">In my mind, I genuinely am looking to create something that brings others joy the same way many tabletop games and collectibles have done for me my entire life. Video games are great, but nothing beats sitting at a table with the right people living in the moment. If you're reading this, I sincerely <i>thank you</i> for taking the time and hope this little passion project of mine brings you and the ones around you some form of enjoyment and positivity.</p>
@@ -119,6 +118,7 @@
         </section>
         
         <section>
+            <img src="/images/creatures/sets/1/144.webp" class="how-to-play-float-right" alt="Elemental Creature">
             <div class="header-spacer" id="playingcreatures"></div>
             <h2>Playing Creatures</h2>
             <p>Every Creature has a LEVEL (found at the top left of each card). These indicate the requirement to play that card.</p>
@@ -132,6 +132,7 @@
         </section>
 
         <section>
+            <img src="/images/creatures/sets/1/022.webp" class="how-to-play-float-left" alt="Elemental Creature">
             <div class="header-spacer" id="deckbuilding"></div>
             <h2>Deckbuilding</h2>
             <p>Each player's deck must follow the rules below.</p>
@@ -146,6 +147,7 @@
         </section>
 
         <section>
+            <img src="/images/creatures/sets/1/149.webp" class="how-to-play-float-right" alt="Elemental Creature">
             <div class="header-spacer" id="elementguide"></div>
             <h2>Element Guide</h2>
             <img src="../images/howtoplay/elements.webp" alt="Element Guide" class="img-fit">
@@ -173,6 +175,7 @@
         </section>
 
         <section>
+            <img src="/images/creatures/sets/1/014.webp" class="how-to-play-float-left" alt="Elemental Creature">
             <div class="header-spacer" id="keywords"></div>
             <h2>Keywords</h2>
             <ul>
@@ -199,6 +202,7 @@
         </section>
 
         <section>
+            <img src="/images/creatures/sets/1/194.webp" class="how-to-play-float-right" alt="Elemental Creature">
             <div class="header-spacer" id="resolvingeffects"></div>
             <h2>Resolving Effects</h2>
             <p>Card effects resolve by order of <b>LAST IN, FIRST OUT</b>. This means that the last card effect that triggered is the first to resolve, and resolution moves in reverse order of those triggered effects so that the first effect to trigger should be the last to resolve. When effects trigger simultaneously, the Turn Player resolves their effect first.</p>

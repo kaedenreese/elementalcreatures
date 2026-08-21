@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\CardController as AdminCardController;
 use App\Http\Controllers\Admin\CardSetController;
-use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\ContactUsController as AdminContactUsController;
 use App\Http\Controllers\Admin\EffectTypeController;
 use App\Http\Controllers\Admin\ElementController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\RetailerController as AdminRetailerController;
 use App\Http\Controllers\Admin\SpeciesController;
 use App\Http\Controllers\Api\CardController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RetailerController;
@@ -30,6 +31,9 @@ Route::get('/retailers', [RetailerController::class, 'index'])->name('retailers'
 Route::view('/howtoplay', 'howtoplay')->name('howtoplay');
 Route::view('/live', 'live')->name('live');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::view('/contactus', 'contactus')->name('contactus');
+Route::post('/contactus', ContactUsController::class)->name('doContactus');
+Route::view('/thankyou', 'thankyou')->name('thankyou');
 
 Route::get('/api/cards', CardController::class);
 
@@ -43,6 +47,5 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         Route::resource('effecttypes', EffectTypeController::class);
         Route::resource('cards', AdminCardController::class);
         Route::resource('species', SpeciesController::class);
-        
-        Route::get('contactus', [ContactUsController::class, 'index'])->name('contactus');
+        Route::resource('contactus', AdminContactUsController::class);
 });
