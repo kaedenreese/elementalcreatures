@@ -20,7 +20,14 @@ class CardController extends Controller
             $cards = $cardsets[$i]->cards;
             foreach($cards as $card) {
                 try{
-                $card['effect_type'] = $card->effect_type;
+                    $card['effect_type'] = $card->effect_type;
+                }
+                catch (Exception $e) {
+                    return response()->json(['message' => $e->getMessage()]);
+                }
+
+                try {
+                    $card['elements'] = $card->elements;
                 }
                 catch (Exception $e) {
                     return response()->json(['message' => $e->getMessage()]);

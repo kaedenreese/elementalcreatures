@@ -43,20 +43,93 @@ class Gallery {
         starterSet.classList.remove('option-noselected');
         starterSet.classList.add('option-selected');
 
+        const searchBox = document.getElementById('search');
+        searchBox.addEventListener('input', (e) => {
+            this.Parameters.query = e.target.value;
+            this.generateCards();
+        });
+
         let sets = document.querySelectorAll('[data-cardset]');
         sets.forEach((button) => {
             button.addEventListener("click", (e) => {
                 const cardset_id = button.getAttribute('data-cardset');
                 sets.forEach((set) => {
-                    set.classList.remove('option-selected');
-                    set.classList.add('option-noselected');
+                    if(cardset_id != this.Parameters.set) {
+                        set.classList.remove('option-selected');
+                        set.classList.add('option-noselected');
+                    }
                 });
 
                 if(cardset_id != this.Parameters.set) {
-                    this.Parameters.set = cardset_id;
+                    this.Parameters.set = Number(cardset_id);
                     e.target.classList.remove('option-noselected');
                     e.target.classList.add('option-selected');
                 }
+                this.generateCards();
+            });
+        });
+
+        let elements = document.querySelectorAll('[data-element]');
+        elements.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                const element_id = Number(button.getAttribute('data-element'));
+                const viewElement = this.Parameters.elements.indexOf(element_id);
+                const hideElement = this.Parameters.notelements.indexOf(element_id);
+
+                if(viewElement != -1) {
+                    this.Parameters.elements.splice(viewElement, 1);
+                    this.Parameters.notelements.push(Number(element_id));
+                    e.target.classList.remove('option-selected');
+                    e.target.classList.add('option-deselected');
+                    this.generateCards();
+                    return;
+                }
+
+                if(hideElement != -1) {
+                    this.Parameters.notelements.splice(hideElement, 1);
+                    e.target.classList.remove('option-deselected');
+                    e.target.classList.add('option-noselected');
+                    this.generateCards();
+                    return;
+                }
+
+                this.Parameters.elements.push(Number(element_id));
+                e.target.classList.remove('option-noselected');
+                e.target.classList.add('option-selected');
+                this.generateCards();
+            });
+        });
+
+        
+
+        let species = document.querySelectorAll('[data-species]');
+        species.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                const species_id = Number(button.getAttribute('data-species'));
+                const viewElement = this.Parameters.species.indexOf(species_id);
+                const hideElement = this.Parameters.notspecies.indexOf(species_id);
+                console.log(viewElement);
+
+                if(viewElement != -1) {
+                    this.Parameters.species.splice(viewElement, 1);
+                    this.Parameters.notspecies.push(Number(species_id));
+                    e.target.classList.remove('option-selected');
+                    e.target.classList.add('option-deselected');
+                    this.generateCards();
+                    return;
+                }
+
+                if(hideElement != -1) {
+                    this.Parameters.notspecies.splice(hideElement, 1);
+                    e.target.classList.remove('option-deselected');
+                    e.target.classList.add('option-noselected');
+                    this.generateCards();
+                    return;
+                }
+
+                this.Parameters.species.push(Number(species_id));
+                e.target.classList.remove('option-noselected');
+                e.target.classList.add('option-selected');
                 this.generateCards();
             });
         });
@@ -75,8 +148,25 @@ class Gallery {
                 const cards = set.cards;
 
                 cards.forEach((card) => {
+                    for(let i = 0; i < card.elements.length; i++) {
+                        if(this.Parameters.notelements.includes(card.elements[i].id)) return;
+                        if(this.Parameters.elements.length != 0) {
+                            if(!this.Parameters.elements.includes(card.elements[i].id)) return;
+                        }
+                    }
                     // Process selections
+                    if(this.Parameters.notspecies.includes(card.species_id)) return;
+                    if(this.Parameters.species.length != 0) {
+                        if(!this.Parameters.species.includes(card.species_id)) return;
+                    }
+
+                    // Finally, queries
+                    if(this.Parameters.query.length > 1) {
+                        if(!card.effect.toLowerCase().includes(this.Parameters.query.toLowerCase()) && !card.name.toLowerCase().includes(this.Parameters.query.toLowerCase())) return;
+                    }
                     results.push(card);
+
+                    
                 });
             }
         });
