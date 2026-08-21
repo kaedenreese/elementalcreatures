@@ -15,6 +15,19 @@ class Gallery {
         'query': ''
     };
 
+    elementKey = [
+        'fire',
+        'air',
+        'rock',
+        'water',
+        'electric',
+        'dark',
+        'spirit',
+        'omniment',
+        'nature',
+        'ice'
+    ]
+
     constructor() {
     }
 
@@ -206,6 +219,27 @@ class Gallery {
                     const species = document.createElement('div');
                     species.style.textAlign = 'center';
                     species.innerText = card.species_name;
+                    species.style.marginBottom = '10px';
+
+                    const elementList = document.createElement('div');
+                    elementList.classList.add('flex-center');
+                    elementList.style.marginBottom = '10px';
+
+                    card.elements.forEach((element) => {
+                        const index = element.id - 1;
+                        //if(index == 7) return;
+                        console.log(index);
+                        const imgWrapper = document.createElement('div');
+                        imgWrapper.classList.add('gallery-element-wrapper');
+                        const img = document.createElement('img');
+                        img.src = '/images/elements/element_' + this.elementKey[index] + '.webp';
+                        img.classList.add('img-fit-vertical');
+                        //img.alt = this.elementKey[index][0].toUpperCase() + this.elementKey[index].slice(1);
+
+                        imgWrapper.appendChild(img);
+
+                        elementList.appendChild(imgWrapper);
+                    });
 
                     const cardTopRow = document.createElement('div');
                     cardTopRow.classList.add('card-info-wrapper');
@@ -230,6 +264,7 @@ class Gallery {
 
                     cardWrapper.appendChild(cardTitle);
                     cardWrapper.appendChild(species);
+                    cardWrapper.appendChild(elementList);
                     cardWrapper.appendChild(cardEffectType);
                     cardWrapper.appendChild(cardEffect);
                     cardWrapper.appendChild(cardTopRow);

@@ -141,11 +141,11 @@ h4 {
 
 @media (max-width: 799px) {
     #wrapper {
-        margin-top: 150px;
+        margin-top: 50px;
     }
 
     #index_wrapper {
-        margin-top: 150px;
+        margin-top: 100px;
     }
 
     .grid-3 {
@@ -384,4 +384,49 @@ footer p {
     width: 95%;
     max-width: 300px;
     margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input[type="email"], form input[type="textbox"], form input[type="number"], form input[type="password"] {
+    background-color: transparent;
+    padding: 5px;
+    color: var(--text-color);
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+textarea {
+    background-color: transparent;
+    padding: 5px;
+    color: var(--text-color);
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 95%;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.site-create-button {
+    border-radius: 15px;
+    padding: 0px 20px 0px 20px;
+    text-align: center;
+    background-color: var(--link-color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 18px;
+    border: 2px solid transparent;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.site-create-button:hover, .site-create-button:focus {
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
 }

@@ -116,3 +116,21 @@ input[type="textbox"] {
     border: 2px solid var(--text-color);
     cursor: pointer;
 }
+
+.flex-center {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.element-icon {
+    max-height: 80px;
+}
+
+.img-fit-vertical {
+    max-height: 100%;
+}
+
+.gallery-element-wrapper {
+    height: 50px;
+}

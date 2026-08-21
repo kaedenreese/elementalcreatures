@@ -223,7 +223,7 @@ form input[type="email"], form input[type="textbox"], form input[type="number"],
     color: var(--text-color);
     border: 2px solid white;
     border-radius: 5px;
-    width: 100%;
+    width: 95%;
     margin-bottom: 10px;
 }
 
@@ -233,7 +233,7 @@ textarea {
     color: var(--text-color);
     border: 2px solid white;
     border-radius: 5px;
-    width: 100%;
+    width: 95%;
     margin-bottom: 10px;
     height: 100px;
 }
@@ -265,11 +265,11 @@ nav ul {
     gap: 15px;
 }
 
-header input[type=checkbox] {
+header input[type=checkbox], .multi-select-checkboxes input[type=checkbox] {
     display: none;
 }
 
-header input[type=checkbox]:checked + .hover-to-select {
+.multi-select-checkboxes input[type=checkbox]:checked + .hover-to-select {
     background-color: var(--search-include);
     color: black;
 }
