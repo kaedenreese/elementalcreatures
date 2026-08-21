@@ -23,6 +23,7 @@ class Gallery {
         const route = '/api/cards';
 
         let json = await KaedenFetcher(route);
+        console.log(json);
 
         this.CardsBySet = json;
         this.generateCards();
@@ -108,7 +109,6 @@ class Gallery {
                 const species_id = Number(button.getAttribute('data-species'));
                 const viewElement = this.Parameters.species.indexOf(species_id);
                 const hideElement = this.Parameters.notspecies.indexOf(species_id);
-                console.log(viewElement);
 
                 if(viewElement != -1) {
                     this.Parameters.species.splice(viewElement, 1);
@@ -135,6 +135,22 @@ class Gallery {
         });
     }
 
+    checkElement(card) {
+        let hasElement = false;
+
+        for(let i = 0; i < card.elements.length; i++) {
+            if(this.Parameters.elements.length != 0) {
+                if(this.Parameters.elements.includes(card.elements[i].id)) {
+                    hasElement = true;
+                };
+            }
+            if(this.Parameters.notelements.includes(card.elements[i].id)) return false;
+        }
+
+        if(!hasElement && this.Parameters.elements.length != 0) return false;
+        return true;
+    }
+
     generateCards() {
         const gallery = document.getElementById('gallery');
         const textToggle = document.getElementById('text_only_mode').checked;
@@ -148,12 +164,7 @@ class Gallery {
                 const cards = set.cards;
 
                 cards.forEach((card) => {
-                    for(let i = 0; i < card.elements.length; i++) {
-                        if(this.Parameters.notelements.includes(card.elements[i].id)) return;
-                        if(this.Parameters.elements.length != 0) {
-                            if(!this.Parameters.elements.includes(card.elements[i].id)) return;
-                        }
-                    }
+                    if(!this.checkElement(card)) return;
                     // Process selections
                     if(this.Parameters.notspecies.includes(card.species_id)) return;
                     if(this.Parameters.species.length != 0) {
@@ -192,6 +203,10 @@ class Gallery {
                     cardTitle.appendChild(cardName);
                     cardTitle.appendChild(horizontalBar2);
 
+                    const species = document.createElement('div');
+                    species.style.textAlign = 'center';
+                    species.innerText = card.species_name;
+
                     const cardTopRow = document.createElement('div');
                     cardTopRow.classList.add('card-info-wrapper');
                     const cardLevel = document.createElement('div');
@@ -214,6 +229,7 @@ class Gallery {
                     cardEffect.innerText = card.effect;
 
                     cardWrapper.appendChild(cardTitle);
+                    cardWrapper.appendChild(species);
                     cardWrapper.appendChild(cardEffectType);
                     cardWrapper.appendChild(cardEffect);
                     cardWrapper.appendChild(cardTopRow);

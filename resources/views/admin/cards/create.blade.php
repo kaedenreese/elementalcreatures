@@ -23,7 +23,7 @@
                 <label for="card_set_id">Card Set</label>
                 <select id="card_set_id" name="card_set_id" style="margin-bottom: 10px;">
                     @foreach ($cardsets as $cardset)
-                        <option value="{{ $cardset['id'] }}">{{ $cardset['name'] }}</option>
+                        <option value="{{ $cardset['id'] }}" {{ $cardset->id == 2 ? 'selected' : '' }}>{{ $cardset['name'] }}</option>
                     @endforeach
                 </select>
                 <label for="effect_type_id">Effect Type</label>

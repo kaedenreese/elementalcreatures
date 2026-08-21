@@ -14,7 +14,7 @@ class CardController extends Controller
     public function __invoke()
     {
         // Fetch all cards by set
-        $cardsets = CardSet::all();
+        $cardsets = CardSet::where('public', '1')->get();
         $return_body = [];
         for($i = 0; $i < sizeof($cardsets); $i++) {
             $cards = $cardsets[$i]->cards;
@@ -28,6 +28,12 @@ class CardController extends Controller
 
                 try {
                     $card['elements'] = $card->elements;
+                }
+                catch (Exception $e) {
+                    return response()->json(['message' => $e->getMessage()]);
+                }
+                try {
+                $card['species_name'] = $card->species->name;
                 }
                 catch (Exception $e) {
                     return response()->json(['message' => $e->getMessage()]);

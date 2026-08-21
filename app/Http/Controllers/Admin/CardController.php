@@ -39,7 +39,7 @@ class CardController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(?Request $request = null)
     {
         $cardsets = CardSet::all();
         $elements = CardElement::all();
@@ -147,7 +147,7 @@ class CardController extends Controller
             }
         }
 
-        return redirect()->route('admin.cards.create')->with('message', "Card {$card->name} updated!");
+        return redirect()->route('admin.cards.index')->with('message', "Card {$card->name} updated!");
     }
 
     /**

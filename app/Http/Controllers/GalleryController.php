@@ -12,7 +12,7 @@ class GalleryController extends Controller
     public function index() {
         $elements = CardElement::all();
         $species = Species::all();
-        $cardsets = CardSet::all();
+        $cardsets = CardSet::where('public',1)->get();
 
         return view('gallery', [
             'elements' => $elements,

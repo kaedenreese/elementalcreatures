@@ -16,9 +16,9 @@ class Card extends Model
         return $this->belongsToMany(CardElement::class);
     }
 
-    public function species(): HasOne
+    public function species(): BelongsTo
     {
-        return $this->hasOne(Species::class);
+        return $this->belongsTo(Species::class);
     }
 
     public function cardset(): BelongsTo

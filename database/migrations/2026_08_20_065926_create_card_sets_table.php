@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 64);
             $table->string('description', 2048)->nullable(true);
             $table->timestamp('release_date');
+            $table->boolean('public')->default(false);
             $table->timestamps();
         });
     }

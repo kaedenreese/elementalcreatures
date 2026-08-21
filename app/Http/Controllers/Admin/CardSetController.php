@@ -72,6 +72,9 @@ class CardSetController extends Controller
             'release_date' => 'date'
         ]);
 
+        if($request->has('public')) $validated['public'] = 1;
+        else $validated['public'] = 0;
+
         $cardset = CardSet::findOrFail($id);
         $cardset->update($validated);
 

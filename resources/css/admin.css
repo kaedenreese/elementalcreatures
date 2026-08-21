@@ -265,11 +265,11 @@ nav ul {
     gap: 15px;
 }
 
-input[type=checkbox] {
+header input[type=checkbox] {
     display: none;
 }
 
-input[type=checkbox]:checked + .hover-to-select {
+header input[type=checkbox]:checked + .hover-to-select {
     background-color: var(--search-include);
     color: black;
 }
