@@ -15,7 +15,11 @@
                 <p>There are no messages to show yet</p>
             @endif
             @foreach ($contactus as $contact)
-                <p><a href="{{ route('admin.contactus.show', ['contactus' => $contact->id]) }}">{{ $contact->name }}</a></p>
+                <p><a href="{{ route('admin.contactus.show', ['contactu' => $contact->id]) }}">{{ $contact->name }}</a>
+                @if (!$contact->read)
+                    <b>*Unread*</b>
+                @endif
+            </p>
             @endforeach
         </div>
     </main>

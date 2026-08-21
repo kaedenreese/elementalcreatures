@@ -41,7 +41,9 @@ class ContactUsController extends Controller
     {
         $contactus = ContactUs::findOrFail($id);
 
-        return view('admin.contactus.show', [$contactus => $contactus]);
+        $contactus->update(['read' => 1]);
+
+        return view('admin.contactus.show', ['contactu' => $contactus]);
     }
 
     /**
