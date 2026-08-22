@@ -14,6 +14,9 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RetailerController;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
