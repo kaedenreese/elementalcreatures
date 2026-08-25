@@ -190,7 +190,7 @@ h4 {
     #hamburger_menu {
         display: block;
         position: relative;
-        content: url(/public/images/svg/hamburger-menu.svg);
+        content: url('../images/svg/hamburger-menu.svg');
     }
 
     #navigation {
