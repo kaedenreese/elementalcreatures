@@ -299,6 +299,7 @@ class Gallery {
                 image.classList.add('img-fit');
                 image.src = thumbnailPath + imageFileName;
                 image.alt = card.name;
+                image.loading = 'lazy';
 
                 cardwrapper.appendChild(image);
                 cardwrapper.addEventListener('click', () => {
