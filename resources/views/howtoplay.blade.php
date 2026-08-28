@@ -19,6 +19,7 @@
                 <li><img src="/images/creatures/sets/1/176.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#yourplayarea">Your Play Area</a></li>
                 <li><img src="/images/creatures/sets/1/101.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#startingagame">Starting a Game</a></li>
                 <li><img src="/images/creatures/sets/1/087.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#theround">The Round</a></li>
+                <li><img src="/images/creatures/sets/1/088.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#cardeffects">Card Effects</a></li>
                 <li><img src="/images/creatures/sets/1/143.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#earningpoints">Earning Points</a></li>
                 <li><img src="/images/creatures/sets/1/028.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#playingcreatures">Playing Creatures</a></li>
                 <li><img src="/images/creatures/sets/1/017.webp" class="table-of-contents-bullet" alt="Elemental Creature"> <a href="#deckbuilding">Deckbuilding</a></li>
@@ -103,6 +104,18 @@
                 <li>The player with the highest total earns points equal to the difference of those totals. See Earning Points.</li>
                 <li>Players Rest their <span class="frontline">FRONTLINE</span> Creatures and Descend their <span class="sideline">SIDELINE</span> creatures.</li>
             </ol>
+            <div class="return-to-top"><a href="#">Return to Top</a></div>
+        </section>
+        
+        <section>
+            <img src="/images/creatures/sets/1/149.webp" class="how-to-play-float-right" alt="Elemental Creature">
+            <div class="header-spacer" id="cardeffects"></div>
+            <h2>Card Effects</h2>
+            <ul>
+                <li><b>Ongoing Effects</b> are acknowledged after the creature is played. These Effects are constantly being applied to the board state of the game and apply while on the player's <span class="frontline">FRONLINE</span> and <span class="sideline">SIDELINE</span>.</li>
+                <li><b>Play Effects</b> happen the moment a creature enters play and resolve before the turn is passed.</li>
+                <li><b>Trigger Effects</b> are acknowledged after the creature is played (a creature can't trigger itself). Depending on the ruling of the specific Trigger Effect, these Effects only impact the game when referenced.</li>
+            </ul>
             <div class="return-to-top"><a href="#">Return to Top</a></div>
         </section>
 

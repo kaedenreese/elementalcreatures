@@ -274,11 +274,11 @@ function resizeImages(
 // Configuration
 // --------------------------------------------------
 
-$inputFolder = 'D:\www\ec\images\cards\sets\2\promo';
-$outputFolder = 'D:\www\ec\images\cards\sets\2\promo';
+$inputFolder = 'D:\www\ec3.0\temp';
+$outputFolder = 'D:\www\ec3.0\temp2';
 
-$maxWidth = 500;
-$maxHeight = 700;
+$maxWidth = 100;
+$maxHeight = 140;
 
 
 // Run
