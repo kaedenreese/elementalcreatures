@@ -1,6 +1,6 @@
 <header>
     <div id="main_logo">
-        <a href="/"><img src="images/elemental_creatures_logo.webp" alt="Elemental Creatures Trading Card Game" class="main-logo"></a>
+        <a href="/"><img src="{{ asset('images/elemental_creatures_logo.webp') }}" alt="Elemental Creatures Trading Card Game" class="main-logo"></a>
     </div>
     <div id="header">
         <nav>

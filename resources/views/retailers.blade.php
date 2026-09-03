@@ -19,10 +19,10 @@
 
                 <p class="description-text">Do you want to carry Elemental Creatures TCG product? Do you want to run official events and tournaments? <a href="{{ route('contactus') }}">Contact Us</a> and let us know.</p>
                 <div class="flex-between">
-                    <div><img src="../images/creatures/sets/1/069.webp" alt="Prismeedle" class="hero-content-box-img" style="max-height: 80px;"></div>
-                    <div><img src="../images/creatures/sets/1/166.webp" alt="Rokusei" class="hero-content-box-img" style="max-width: 80px;"></div>
-                    <div><img src="../images/creatures/sets/1/006.webp" alt="Venwurm" class="hero-content-box-img" style="max-width: 80px;"></div>
-                    <div><img src="../images/creatures/sets/1/005.webp" alt="Naryu" class="hero-content-box-img" style="max-width: 80px;"></div>
+                    <div><img src="{{ asset('images/creatures/sets/1/069.webp') }}" alt="Prismeedle" class="hero-content-box-img" style="max-height: 80px;"></div>
+                    <div><img src="{{ asset('images/creatures/sets/1/166.webp') }}" alt="Rokusei" class="hero-content-box-img" style="max-width: 80px;"></div>
+                    <div><img src="{{ asset('images/creatures/sets/1/006.webp') }}" alt="Venwurm" class="hero-content-box-img" style="max-width: 80px;"></div>
+                    <div><img src="{{ asset('images/creatures/sets/1/005.webp') }}" alt="Naryu" class="hero-content-box-img" style="max-width: 80px;"></div>
                 </div>
             </section>
 

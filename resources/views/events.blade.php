@@ -32,7 +32,7 @@
             </section>
 
             <div class="creature-image-centered">
-                <img src="images/creatures/sets/1/049.webp" alt="Daracarid" class="img-fit">
+                <img src="{{ asset('images/creatures/sets/1/049.webp') }}" alt="Daracarid" class="img-fit">
             </div>
         </div>
     </main>
