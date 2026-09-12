@@ -274,11 +274,14 @@ function resizeImages(
 // Configuration
 // --------------------------------------------------
 
-$inputFolder = 'D:\www\ec3.0\temp';
-$outputFolder = 'D:\www\ec3.0\temp2';
+$inputFolder = 'D:\www\ec3.0\fullsize';
+$outputFolder = 'D:\www\ec3.0\fullsize_done';
+$outputFolder_thumb = 'D:\www\ec3.0\thumb_done';
 
-$maxWidth = 100;
-$maxHeight = 140;
+$maxWidth = 500;
+$maxHeight = 700;
+$maxWidthThumb = 100;
+$maxHeightThumb = 140;
 
 
 // Run
@@ -287,6 +290,13 @@ resizeImages(
     $outputFolder,
     $maxWidth,
     $maxHeight
+);
+
+resizeImages(
+    $inputFolder,
+    $outputFolder_thumb,
+    $maxWidthThumb,
+    $maxHeightThumb
 );
 
 echo "Done!\n";
