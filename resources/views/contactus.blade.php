@@ -17,7 +17,7 @@
                     <div class="horizontal-bar"></div>
                 </div>
 
-                <p class="description-text">You can use this form or email <a href="mailto:elementalcreatures@gmail.com">elementalcreatures@gmail.com</a> directly. We look forward to hearing from you!</p>
+                <p class="description-text">You can use this form or email <a href="mailto:elementalcreaturestcg@gmail.com">elementalcreaturestcg@gmail.com</a> directly. We look forward to hearing from you!</p>
             </section>
 
             <section>
