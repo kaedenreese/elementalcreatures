@@ -26,6 +26,7 @@
             <button data-cardset="{{ $cardset->id }}" class="option-noselected">{{ $cardset->name }}</button>
         @endforeach
     </div>
+    <div id="card_set_description" style="font-size: 12px; margin-top: 5px;"></div>
     <h2>Elements</h2>
     <div class="flex-wrap">
         @foreach ($elements as $element)
