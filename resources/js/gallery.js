@@ -36,7 +36,7 @@ class Gallery {
         const route = '/api/cards';
 
         let json = await KaedenFetcher(route);
-        console.log(json);
+        //console.log(json);
 
         this.CardsBySet = json;
         this.generateCards();
@@ -79,6 +79,8 @@ class Gallery {
                     e.target.classList.remove('option-noselected');
                     e.target.classList.add('option-selected');
                 }
+                if(cardset_id == 1) document.getElementById('card_set_description').innerText = '* Cards with a white border are updated in Alpha Evolved, and the Alpha Evolved text is to be used in all cases';
+                else document.getElementById('card_set_description').innerText = '';
                 this.generateCards();
             });
         });
@@ -228,7 +230,7 @@ class Gallery {
                     card.elements.forEach((element) => {
                         const index = element.id - 1;
                         //if(index == 7) return;
-                        console.log(index);
+                        //console.log(index);
                         const imgWrapper = document.createElement('div');
                         imgWrapper.classList.add('gallery-element-wrapper');
                         const img = document.createElement('img');
