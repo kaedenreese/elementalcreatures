@@ -6,7 +6,11 @@
     @vite(['resources/js/live.js'])
 @endpush
 
-@include('components.head')
+<x-head>
+    <x-slot:title>
+        Live Calculator | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+    </x-slot>
+</x-head>
 <body>
     <dialog id="modal" closedby="closerequest">
         <div class="modal-content">
