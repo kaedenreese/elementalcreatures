@@ -23,7 +23,7 @@
 
                 
                 <div>
-                    <img src="{{ asset('images/temp-banner.png') }}" class="img-fit" alt="Elemental Creature">
+                    <img src="{{ asset('images/temp_banner.png') }}" class="img-fit" alt="Elemental Creature">
                 </div>
                 <div>
                     <p style="text-align: center;"><a href="{{ route('contactus') }}">Contact Us</a></p>

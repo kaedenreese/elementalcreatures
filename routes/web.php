@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RetailerController;
+use App\Models\CardSet;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,6 +37,54 @@ Route::post('/contactus', ContactUsController::class)->name('doContactus');
 Route::view('/thankyou', 'thankyou')->name('thankyou');
 
 Route::get('/api/cards', CardController::class);
+Route::get('/api/tcg-arena', function() {
+    $path = '.';
+
+    $comma = '';
+    $cardsets = CardSet::where('public', '1')->get();
+    $return_body = '{' . PHP_EOL;
+    for($i = 1; $i < sizeof($cardsets); $i++) {
+        $cards = $cardsets[$i]->cards;
+        foreach($cards as $card) {
+            if($card->number < 100) $card->number = '0' . $card->number;
+            if($card->number < 10) $card->number = '0' . $card->number;
+            $elements = [];
+            foreach($card->elements as $element) {
+                array_push($elements, $element->name);
+            }
+            $card_json = $comma . '"' . $card->card_set_id . '.' . $card->number . '": {
+                    "id": "' . $card->card_set_id . '.' . $card->number . '",
+                    "type": "Creature",
+                    "face": {
+                        "front": {
+                            "name": { "name": "' . $card->name . '" },
+                            "type": "Creature",
+                            "cost": 0,
+                            "image": "https://elementalcreaturestcg.com/images/cards/sets/' . $card->card_set_id . '/fullsize/' . $card->number . '.png"
+                        }
+                    },
+                    "name": "' . $card->name . '",
+                    "Species": "' . $card->species->name . '",
+                    "Elements": ' . json_encode($elements) . ',
+                    "Level": ' . $card->level . ',
+                    "cost": 0,
+                    "legality": {
+                         "STD": true
+                    }
+                }';
+            $comma = ',' . PHP_EOL;
+            $return_body .= $card_json;
+        }
+    }
+    $return_body .= '}';
+
+    if(!file_exists($path)) {
+        mkdir($path);
+    }
+    file_put_contents($path . '/cards.json', $return_body);
+
+    return 'cards.json has been updated';
+});
 
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
         Route::view('dashboard', 'admin.dashboard')->name('dashboard');
