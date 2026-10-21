@@ -1,162 +1,277 @@
-window.addEventListener("load", () => {
-    const backToSiteButton = document.querySelector(".go-back");
-    const flipButton = document.querySelector(".flip");
-    const playerOne = document.querySelector(".player-1");
-
-    flipButton.addEventListener("click", () => {
-        playerOne.classList.toggle("do-flip");
-    });
-
-    backToSiteButton.addEventListener("click", () => {
-        window.location.href = "/";
-    });
-
-    g = new Game();
-    g.init();
-});
-
-let g;
+const App = {
+    Players: []
+}
 
 class Game {
-    constructor() {
-        this.divs = {
-            playerOneScoreDiv: document.querySelector(".player-one-points"),
-            playerTwoScoreDiv: document.querySelector(".player-two-points"),
-            playerOnePower: document.querySelector("#player-one-power"),
-            playerTwoPower: document.querySelector("#player-two-power"),
-            roundNumber: document.querySelector(".round-number"),
+    App;
+    Round;
 
-            playerOnePowerUp: document.querySelector(".player-one-power-up"),
-            playerOnePowerDown: document.querySelector(".player-one-power-down"),
-            playerTwoPowerUp: document.querySelector(".player-two-power-up"),
-            playerTwoPowerDown: document.querySelector(".player-two-power-down"),
-
-            endRoundButton: document.querySelector("#end-round"),
-            resetButton: document.querySelector("#reset"),
-            modalNewGameButton: document.querySelector("#modal-new-game-button"),
-            modalCloseButton: document.querySelector("#modal-close-button"),
-            modal: document.querySelector("#modal"),
-            modalTitle: document.querySelector("#modal-title"),
-            modalMessage: document.querySelector("#modal-message")
-        };
-        this.playerOneName = "Player One";
-        this.playerTwoName = "Player Two";
-        this.playerOneScore = 0;
-        this.playerTwoScore = 0;
-        this.playerOnePower = 0;
-        this.playerTwoPower = 0;
-        this.roundNumber = 1;
-    }
-    
-
-    init() {
-        this.divs.modalCloseButton.addEventListener("click", () => {
-            this.divs.modal.close();
-        });
-
-        this.divs.modalNewGameButton.addEventListener("click", () => {
-            this.divs.modal.close();
-            this.roundNumber = 1;
-            this.updateRounds();
-            this.resetScores();
-            this.resetPowers();
-        });
-        
-        this.divs.playerOnePowerUp.addEventListener("click", () => {
-            this.playerOnePower++;
-            this.updatePower();
-        });
-
-        this.divs.playerOnePowerDown.addEventListener("click", () => {
-            this.playerOnePower--;
-            this.updatePower();
-        });
-
-        this.divs.playerTwoPowerUp.addEventListener("click", () => {
-            this.playerTwoPower++;
-            this.updatePower();
-        });
-
-        this.divs.playerTwoPowerDown.addEventListener("click", () => {
-            this.playerTwoPower--;
-            this.updatePower();
-        });
-
-        this.divs.endRoundButton.addEventListener("click", () => {
-            this.roundNumber++;
-            this.updateRounds();
-            this.endRound();
-            this.resetPowers();
-        });
-
-        this.divs.resetButton.addEventListener("click", () => {
-            this.roundNumber = 1;
-            this.updateRounds();
-            this.resetScores();
-            this.resetPowers();
-        });
-
-        this.divs.playerOnePower.addEventListener("input", (e) => {
-            this.playerOnePower = parseInt(e.target.value) || 0;
-        });
-
-        this.divs.playerTwoPower.addEventListener("input", (e) => {
-            this.playerTwoPower = parseInt(e.target.value) || 0;
-        });
-
-        this.resetScores();
-
-        this.divs.playerOnePower.value = 0;
-        this.divs.playerTwoPower.value = 0;
-    }
-
-    updatePower() {
-        this.divs.playerOnePower.value = this.playerOnePower;
-        this.divs.playerTwoPower.value = this.playerTwoPower;
-    }
-
-    updateScores() {
-        this.divs.playerOneScoreDiv.textContent = `${this.playerOneScore} Points`;
-        this.divs.playerTwoScoreDiv.textContent = `${this.playerTwoScore} Points`;
-    }
-
-    updateRounds() {
-        this.divs.roundNumber.textContent = this.roundNumber;
+    constructor(App) {
+        this.App = App;
+        this.Round = 1;
     }
 
     endRound() {
-        // Logic for ending the round can be added here
-        if(this.playerOnePower > this.playerTwoPower) {
-            this.playerOneScore += this.playerOnePower - this.playerTwoPower;
-        } else if(this.playerTwoPower > this.playerOnePower) {
-            this.playerTwoScore += this.playerTwoPower - this.playerOnePower;
-        }
-        this.updateScores();
+        let highestScorePlayerIndex = -1;
+        let secondHighestScorePlayerIndex = -1;
 
-        if(this.roundNumber > 4) {
-            console.log("GameOver");
-            if(this.playerOneScore > this.playerTwoScore) {
-                this.divs.modalTitle.textContent = "Game Over";
-                this.divs.modalMessage.textContent = `${this.playerOneName} Wins!`;
-                console.log(this.divs.modal);
-                this.divs.modal.showModal();
-            } else if(this.playerTwoScore > this.playerOneScore) {
-                this.divs.modalTitle.textContent = "Game Over";
-                this.divs.modalMessage.textContent = `${this.playerTwoName} Wins!`;
-                this.divs.modal.showModal();
+        for(let i = 0; i < this.App.Players.length; i++) {
+            const player = this.App.Players[i];
+            const highestScorePlayer = this.App.Players[highestScorePlayerIndex];
+            const secondHighestScorePlayer = this.App.Players[secondHighestScorePlayerIndex];
+
+            if(highestScorePlayerIndex == -1) {
+                highestScorePlayerIndex = i;
+                continue;
+            }
+
+            if(player.getRoundScore() >= highestScorePlayer.getRoundScore()) {
+                secondHighestScorePlayerIndex = highestScorePlayerIndex;
+                highestScorePlayerIndex = i;
+                continue;
+            }
+
+            if(secondHighestScorePlayerIndex == -1) {
+                secondHighestScorePlayerIndex = i;
+                continue;
+            }
+
+            if(player.getRoundScore() > secondHighestScorePlayer.getRoundScore()) {
+                secondHighestScorePlayerIndex = i;
             }
         }
+
+        if(this.App.Players[highestScorePlayerIndex].getRoundScore() == this.App.Players[secondHighestScorePlayerIndex].getRoundScore()) {
+            this.startNewRound();
+            return;
+        }
+
+        this.App.Players[highestScorePlayerIndex].increaseGameScore(parseInt(this.App.Players[highestScorePlayerIndex].getRoundScore() - this.App.Players[secondHighestScorePlayerIndex].getRoundScore()));
+        // Did somebody win?
+        
+        let topPlayerIndex = -1;
+        let secondPlayerIndex = -1;
+
+        for(let i = 0; i < this.App.Players.length; i++) {
+            if(topPlayerIndex == -1) {
+                topPlayerIndex = i;
+                continue;
+            }
+
+            if(this.App.Players[i].getGameScore() >= this.App.Players[topPlayerIndex].getGameScore()) {
+                secondPlayerIndex = topPlayerIndex;
+                topPlayerIndex = i;
+                continue;
+            }
+
+            if(secondPlayerIndex == -1) {
+                secondPlayerIndex = i;
+            }
+
+            if(this.App.Players[i].getGameScore() > this.App.Players[secondPlayerIndex].getGameScore()) {
+                secondPlayerIndex = i;
+            }
+        }
+
+        console.log(topPlayerIndex, secondPlayerIndex);
+        if(this.App.Players[topPlayerIndex].getGameScore() != this.App.Players[secondPlayerIndex].getGameScore()) {
+            if(this.App.Players[topPlayerIndex].getGameScore() >= 20) {
+                this.playerWins(topPlayerIndex);
+                return;
+            }
+
+            if(this.Round >= 4) {
+                this.playerWins(topPlayerIndex);
+                return;
+            }
+        }
+
+        this.startNewRound();
     }
 
-    resetScores() {
-        this.playerOneScore = 0;
-        this.playerTwoScore = 0;
-        this.updateScores();
+    startNewRound() {
+        this.Round++;
+        this.App.Players.forEach((player) => {
+            player.setRoundScore(0);
+        });
+
+        this.App.PlayerInterface.render();
     }
 
-    resetPowers() {
-        this.playerOnePower = 0;
-        this.playerTwoPower = 0;
-        this.updatePower();
+    createPlayer(name, css, flip = false) {
+        const player_wrapper = document.createElement('div');
+        player_wrapper.classList.add(css);
+        const player_name = document.createElement('h2');
+        player_name.innerText = name;
+        const player_game_score = document.createElement('div');
+        player_game_score.classList.add('player-score');
+        player_game_score.innerText = '0 Points';
+        const player_round_score = document.createElement('div');
+        player_round_score.classList.add('player-round-score');
+        player_round_score.innerText = '0';
+        const modify_score_wrapper = document.createElement('div');
+        modify_score_wrapper.classList.add('player-modify-score-wrapper');
+        const decrease_round_score = document.createElement('button');
+        decrease_round_score.classList.add('nav-button');
+        decrease_round_score.innerText = '-';
+        const increase_round_score = document.createElement('button');
+        increase_round_score.classList.add('nav-button');
+        increase_round_score.innerText = '+';
+        const flip_button = document.createElement('button');
+        flip_button.classList.add('nav-button-small');
+        flip_button.innerText = '- Flip -';
+        flip_button.addEventListener('click', () => {
+            player_wrapper.classList.toggle('flipped');
+        });
+
+        modify_score_wrapper.appendChild(decrease_round_score);
+        modify_score_wrapper.appendChild(increase_round_score);
+
+        player_wrapper.appendChild(player_name);
+        player_wrapper.appendChild(player_game_score);
+        player_wrapper.appendChild(player_round_score);
+        player_wrapper.appendChild(modify_score_wrapper);
+        if(flip) player_wrapper.appendChild(flip_button);
+
+        document.getElementById('app').appendChild(player_wrapper);
+
+        this.App.Players.push(new Player(player_round_score, player_game_score, increase_round_score, decrease_round_score));
+    }
+
+    playerWins(playerIndex) {
+        switch(playerIndex) {
+            case 0:
+                this.App.PlayerInterface.openModal('Player One Wins!');
+                break;
+            case 1:
+                this.App.PlayerInterface.openModal('Player Two Wins!');
+                break;
+            case 2:
+                this.App.PlayerInterface.openModal('Player Three Wins!');
+                break;
+            case 3:
+                this.App.PlayerInterface.openModal('Player Four Wins!');
+                break;
+        }
     }
 }
+
+class Player {
+    roundScore;
+    gameScore;
+    roundScoreDisplay;
+    gameScoreDisplay;
+    increaseRoundScoreButton;
+    decreaseRoundScoreButton;
+
+    constructor(roundScoreDisplay, gameScoreDisplay, increaseRoundScore, decreaseRoundScore) {
+        this.roundScore = 0;
+        this.gameScore = 0;
+        this.roundScoreDisplay = roundScoreDisplay;
+        this.gameScoreDisplay = gameScoreDisplay;
+        this.increaseRoundScoreButton = increaseRoundScore;
+        this.decreaseRoundScoreButton = decreaseRoundScore;
+
+        this.increaseRoundScoreButton.addEventListener('click', () => {
+            this.increaseRoundScore(1);
+        });
+
+        this.decreaseRoundScoreButton.addEventListener('click', () => {
+            this.increaseRoundScore(-1);
+        });
+    }
+
+    increaseRoundScore(amt = 1) {
+        this.roundScore += amt;
+        if(this.roundScore < 0) this.roundScore = 0;
+        this.roundScoreDisplay.innerText = this.roundScore;
+    }
+
+    increaseGameScore(amt = 1) {
+        this.gameScore += amt;
+        if(this.gameScore < 0) this.gameScore = 0;
+        this.gameScoreDisplay.innerText = `${this.gameScore} Points`;
+    }
+
+    getRoundScore() {
+        return this.roundScore;
+    }
+
+    getGameScore() {
+        return this.gameScore;
+    }
+
+    setRoundScore(amt = 0) {
+        this.roundScore = amt;
+        console.log(this.roundScoreDisplay);
+        if(this.roundScore < 0) this.roundScore = 0;
+        this.roundScoreDisplay.innerText = this.roundScore;
+    }
+}
+
+class PlayerInterface {
+    App;
+    Modal;
+
+    constructor(App) {
+        this.App = App;
+        this.Modal = document.getElementById('modal');
+
+        document.getElementById('modal_close_button').addEventListener('click', () => {
+            this.Modal.close();
+        });
+    }
+
+    openModal(title, message = ''   ) {
+        document.getElementById('modal_title').innerText = title;
+        document.getElementById('modal_message').innerText = message;
+        this.Modal.showModal();
+    }
+
+    closeModal() {
+        this.Modal.close();
+    }
+
+    render() {
+        document.getElementById('round_counter').innerText = `Round ${this.App.Game.Round}`;
+    }
+}
+
+window.addEventListener("load", () => {
+    App['PlayerInterface'] = new PlayerInterface(App);
+    App['Game'] = new Game(App);
+
+    document.getElementById('two_players').addEventListener('click', () => {
+        document.getElementById('app').innerHTML = '';
+
+        App.Game.createPlayer('Player One', 'top-player', true);
+        App.Game.createPlayer('Player Two', 'bottom-player');
+        document.getElementById('round_counter').style.display = 'block';
+        document.getElementById('end_round').style.display = 'block';
+    });
+
+    document.getElementById('three_players').addEventListener('click', () => {
+        document.getElementById('app').innerHTML = '';
+
+        App.Game.createPlayer('Player One', 'top-left-player', true);
+        App.Game.createPlayer('Player Two', 'top-right-player', true);
+        App.Game.createPlayer('Player Three', 'bottom-player', false);
+        document.getElementById('round_counter').style.display = 'block';
+        document.getElementById('end_round').style.display = 'block';
+    });
+
+    document.getElementById('four_players').addEventListener('click', () => {
+        document.getElementById('app').innerHTML = '';
+
+        App.Game.createPlayer('Player 1', 'top-left-player', true);
+        App.Game.createPlayer('Player 2', 'top-right-player', true);
+        App.Game.createPlayer('Player 3', 'bottom-left-player');
+        App.Game.createPlayer('Player 4', 'bottom-right-player');
+        document.getElementById('round_counter').style.display = 'block';
+        document.getElementById('end_round').style.display = 'block';
+    });
+
+    document.getElementById('end_round').addEventListener('click', () => {
+        App.Game.endRound();
+    });
+});

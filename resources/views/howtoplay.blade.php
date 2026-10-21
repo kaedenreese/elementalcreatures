@@ -5,7 +5,11 @@
 @push('js')
 @endpush
 
-@include('components.head')
+<x-head>
+    <x-slot:title>
+        How to Play | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+    </x-slot>
+</x-head>
 <body>
 @include('components.header')
 <main>

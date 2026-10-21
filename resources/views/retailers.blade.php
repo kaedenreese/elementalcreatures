@@ -4,7 +4,11 @@
 @push('js')
 @endpush
 
-@include('components.head')
+<x-head>
+    <x-slot:title>
+        Retailers | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+    </x-slot>
+</x-head>
 <body>
 @include('components.header')
 
@@ -19,7 +23,7 @@
 
                 
                 <div>
-                    <img src="{{ asset('images/temp-banner.png') }}" class="img-fit" alt="Elemental Creature">
+                    <img src="{{ asset('images/temp_banner.png') }}" class="img-fit" alt="Elemental Creature">
                 </div>
                 <div>
                     <p style="text-align: center;"><a href="{{ route('contactus') }}">Contact Us</a></p>
