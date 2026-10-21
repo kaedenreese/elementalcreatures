@@ -14,11 +14,20 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\RetailerController;
+use App\Models\Card;
 use App\Models\CardSet;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    // Select two random cards to load
+    $random_cards = Card::where('card_set_id', 2)->inRandomOrder()->limit(2)->get();
+    $card_one = $random_cards[0]->number;
+    $card_two = $random_cards[1]->number;
+    if($card_one < 100) $card_one = '0' . $card_one;
+    if($card_one < 10) $card_one = '0' . $card_one;
+    if($card_two < 100) $card_two = '0' . $card_two;
+    if($card_two < 10) $card_two = '0' . $card_two;
+    return view('home', ['cards' => [$card_one, $card_two]]);
 })->name('home');
 
 Route::get('/admin', [AuthController::class, 'index'])->name('login');
@@ -57,7 +66,7 @@ Route::get('/api/tcg-arena', function() {
                     "type": "Creature",
                     "face": {
                         "front": {
-                            "name": { "name": "' . $card->name . '" },
+                            "name": "' . $card->name . '",
                             "type": "Creature",
                             "cost": 0,
                             "image": "https://elementalcreaturestcg.com/images/cards/sets/' . $card->card_set_id . '/fullsize/' . $card->number . '.png"
