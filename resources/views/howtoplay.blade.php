@@ -12,6 +12,7 @@
 </x-head>
 <body>
 @include('components.header')
+    @include('components.socials')
 <main>
         <nav>
             <h2>Table of Contents</h2>

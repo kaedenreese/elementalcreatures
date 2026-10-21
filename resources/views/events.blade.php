@@ -11,6 +11,7 @@
 </x-head>
 <body>
 @include('components.header')
+    @include('components.socials')
 
 <main>
         <div id="wrapper">

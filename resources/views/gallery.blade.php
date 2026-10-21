@@ -13,6 +13,7 @@
 </x-head>
 <body>
 @include('components.header')
+    @include('components.socials')
 <div id="wrapper">
     <dialog closedby="any" id="card_display">
         <div id="card_image"></div>
