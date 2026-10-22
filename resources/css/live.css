@@ -45,6 +45,7 @@ nav a, .nav-button {
     cursor: pointer;
     font-size: 16px;
     border: 0;
+    touch-action: manipulation;
 }
 
 nav a:hover, nav a:focus, .nav-button:focus, .nav-button:hover {
