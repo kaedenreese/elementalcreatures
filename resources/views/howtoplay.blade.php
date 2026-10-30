@@ -197,10 +197,10 @@
             <div class="header-spacer" id="keywords"></div>
             <h2>Keywords</h2>
             <ul>
-                <li><b>Ascend</b> - To move a Creature from <i>your</i> Discord to <i>your</i> <span class="sideline">SIDELINE</span>. This is not considered "playing" a card.</li>
+                <li><b>Ascend</b> - To move a Creature from <i>your</i> Discard to <i>your</i> <span class="sideline">SIDELINE</span>. This is not considered "playing" a card.</li>
                 <li><b>Bounce</b> - To return an <i>opponent's</i> Creature from play to its owner's hand.</li>
                 <li><b>Descend</b> - To move a Creature <i>you control</i> from <i>your</i> <span class="sideline">SIDELINE</span> to the Discard.</li>
-                <li><b>Destory</b> - To remove a Creature from play by placing it in its owner's Discard.</li>
+                <li><b>Destroy</b> - To remove a Creature from play by placing it in its owner's Discard.</li>
                 <li><b>Disarm</b> - To remove a Creature's Effect. <b>DISARMED</b> Creatures are treated as if they no longer have an Effect.</li>
                 <li><b>Evolve</b> - To <b>LEVEL UP</b> a Creature into another Creature of the same Species. When a creature <b>EVOLVES</b>, the new Creature enters play with (+1) Power Counters equal to the Power of the returned Creature.</li>
                 <li><b>Exert</b> - To move a Creature <i>you control</i> from <i>your</i> <span class="sideline">SIDELINE</span> to <i>your</i> <span class="frontline">FRONTLINE</span></li>
