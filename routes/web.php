@@ -58,6 +58,15 @@ Route::get('/api/tcg-arena', function() {
             if($card->number < 100) $card->number = '0' . $card->number;
             if($card->number < 10) $card->number = '0' . $card->number;
             $elements = [];
+            /*$legality = '"_legal": {
+                         "FED": true,
+                         "AEV": false
+                    }';
+            if($i == 1) $set_code = '"_legal": {
+                         "FED": false,
+                         "AEV": true
+                    }';*/ $legality = '';
+
             foreach($card->elements as $element) {
                 array_push($elements, $element->name);
             }
@@ -76,10 +85,9 @@ Route::get('/api/tcg-arena', function() {
                     "Species": "' . $card->species->name . '",
                     "Elements": ' . json_encode($elements) . ',
                     "Level": ' . $card->level . ',
-                    "cost": 0,
-                    "legality": {
-                         "STD": true
-                    }
+                    "Power": ' . $card->power . ',
+                    "cost": 0
+                    ' . $legality . '
                 }';
             $comma = ',' . PHP_EOL;
             $return_body .= $card_json;
