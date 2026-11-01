@@ -6,7 +6,7 @@
 
 <x-head>
     <x-slot:title>
-        Events | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+        Events | {{ config('app.name') }} - {{ config('app.tag') }}
     </x-slot>
 </x-head>
 <body>

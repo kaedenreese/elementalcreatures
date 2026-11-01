@@ -7,7 +7,7 @@
 
 <x-head>
     <x-slot:title>
-        How to Play | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+        How to Play | {{ config('app.name') }} - {{ config('app.tag') }}
     </x-slot>
 </x-head>
 <body>

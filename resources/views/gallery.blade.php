@@ -8,7 +8,7 @@
 
 <x-head>
     <x-slot:title>
-        Card Gallery | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+        Card Gallery | {{ config('app.name') }} - {{ config('app.tag') }}
     </x-slot>
 </x-head>
 <body>

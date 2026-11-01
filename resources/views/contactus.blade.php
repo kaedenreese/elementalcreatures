@@ -6,7 +6,7 @@
 
 <x-head>
     <x-slot:title>
-        Contact Us | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+        Contact Us | {{ config('app.name') }} - {{ config('app.tag') }}
     </x-slot>
 </x-head>
 

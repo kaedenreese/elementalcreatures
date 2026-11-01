@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Elemental Creatures'),
+    'tag' => env('APP_TAG', 'A simple and easy-to-learn card game for all'),
 
     /*
     |--------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 
 <x-head>
     <x-slot:title>
-        Retailers | {{ env('APP_NAME') }} - {{ env('APP_TAG') }}
+        Retailers | {{ config('app.name') }} - {{ config('app.tag') }}
     </x-slot>
 </x-head>
 <body>
