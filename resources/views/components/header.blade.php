@@ -7,7 +7,6 @@
             <input type="checkbox" id="hamburger_menu">
             <ul id="navigation">
                 <li><a href="{{ route('gallery') }}" class="nav-button">Card Gallery</a></li>
-                <li><a href="{{ route('events') }}" class="nav-button">Events</a></li>
                 <li><a href="{{ route('howtoplay') }}" class="nav-button">How to Play</a></li>
                 <li><a href="{{ route('live') }}" class="nav-button">Live Calculator</a></li>
                 <li><a href="{{ route('retailers') }}" class="nav-button">Retailer Locator</a></li>
