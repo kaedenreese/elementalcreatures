@@ -39,19 +39,14 @@
                     <div class="horizontal-bar"></div>
                 </div>
 
-                <div class="retailer-grid">
-                    <div class="retailer" style="max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
-                        <div class="inner-retailer-wrapper">
-                            <div class="find-me-listings">
-                                <div class="gradient-background">
-                                    Find me on product listings with shipping!
-                                </div>
-                                <div>
-                                    <img src="{{ asset('images/retailers/shipping.webp') }}" class="we-ship-img" alt="We Ship!">
-                                </div>
-                            </div>
-                        </div>
+                <div class="find-me-listings">
+                    <div class="gradient-background">
+                        Find me on product listings with shipping!
                     </div>
+                    <div>
+                        <img src="{{ asset('images/retailers/shipping.webp') }}" class="we-ship-img" alt="We Ship!">
+                    </div>
+                </div>
                     @if (sizeof($retailers) == 0)
                         <p>There are no current retailers! Check back soon to see them as they are added!</p>
                     @endif

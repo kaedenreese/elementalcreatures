@@ -47,8 +47,12 @@
 
 .find-me-listings {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 1fr;
     align-items: center;
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .retailer-name {
@@ -82,7 +86,7 @@
 
 .gradient-background {
     background: linear-gradient(90deg, transparent, rgba(160,160,160,0.9), transparent);
-    font-size: 3.2rem;
+    font-size: 2rem;
     text-align: center;
     font-family: 'Myriad Variable Concept', sans-serif;
     -webkit-text-fill-color: black; /* Will override color (regardless of order) */
@@ -95,7 +99,7 @@
 
 .we-ship-img {
     height: 100%;
-    max-height: 300px;
+    max-height: 100px;
 }
 
 @media (max-width: 799px) { 
@@ -107,11 +111,11 @@
     }
 
     .gradient-background {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     .we-ship-img {
-        max-height: 150px;
+        max-height: 100px;
     }
 }
 
