@@ -294,9 +294,9 @@ class Gallery {
                 cardwrapper.classList.add('card-image-wrapper');
 
                 const image = document.createElement('img');
-                let imageFileName = card.number + '.png';
-                if(card.number < 10) imageFileName = '00' + card.number + '.png';
-                else if(card.number < 100) imageFileName = '0' + card.number + '.png';
+                let imageFileName = card.number + '.webp';
+                if(card.number < 10) imageFileName = '00' + card.number + '.webp';
+                else if(card.number < 100) imageFileName = '0' + card.number + '.webp';
 
                 image.classList.add('img-fit');
                 image.src = thumbnailPath + imageFileName;
