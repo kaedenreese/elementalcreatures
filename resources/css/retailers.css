@@ -1,0 +1,200 @@
+@font-face {
+    font-family: "Myriad Variable Concept";
+    src: url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.eot");
+    src: url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/3a86b8ec8855002aad8b288eaba8915d.svg#Myriad Variable Concept")format("svg");
+}
+
+.retailer-grid {
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+    /*display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr;*/
+}
+
+.retailer {
+    background: linear-gradient(100deg, #f9f065, #d85044);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.inner-retailer-wrapper {
+    border-radius: 10px;
+    background-image: url('/public/images/retailers/element-background-black.webp');
+    /*background-size: 720px 178px;*/
+    padding: 10px;
+    position: relative;
+}
+
+.inner-retailer {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.retailer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.find-me-listings {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.retailer-name {
+    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-style: italic;
+    text-align: right;
+    background: linear-gradient(90deg, transparent, rgba(160,160,160,0.9) 30%);
+    border-radius: 0px 10px 0px 0px;
+    padding: 5px;
+    font-size: 3rem;
+    color: black;
+    letter-spacing: 2px;
+    padding-right: 20px;
+    font-weight: 800;
+    font-family: 'Myriad Variable Concept', sans-serif;
+}
+
+.retailer-logo-img {
+    width: 100%;
+    height: auto;
+}
+
+.gradient-bar {
+    height: 2px;
+    background: linear-gradient(110deg, #f9f065, #d85044);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.gradient-background {
+    background: linear-gradient(90deg, transparent, rgba(160,160,160,0.9), transparent);
+    font-size: 3.2rem;
+    text-align: center;
+    font-family: 'Myriad Variable Concept', sans-serif;
+    -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    color: black;
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+}
+
+.we-ship-img {
+    height: 100%;
+    max-height: 300px;
+}
+
+@media (max-width: 799px) { 
+    .find-me-listings {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .gradient-background {
+        font-size: 2.5rem;
+    }
+
+    .we-ship-img {
+        max-height: 150px;
+    }
+}
+
+.retailer-address {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    font-family: 'Myriad Variable Concept', sans-serif;
+}
+
+.retailer-phone {
+    text-align: center;
+    font-size: 2.0rem;
+    font-family: 'Myriad Variable Concept', sans-serif;
+}
+
+.retailer-link {
+    text-align: center;
+    background: linear-gradient(90deg, rgba(160,160,160,0.9) 80%, transparent);
+    border-radius: 0px 0px 0px 10px;
+    padding: 5px;
+    font-size: 1.5rem;
+    color: blue;
+    letter-spacing: 3px;
+}
+
+.retailer-link a {
+    color: rgb(71, 71, 255);
+    font-family: 'Myriad Variable Concept', sans-serif;
+    font-weight: bold;
+}
+
+.retailer-link a:hover {
+    color: var(--text-color);
+}
+
+.retailer-online-shipping {
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+}
+
+.shipping-img {
+    width: 110px;
+    height: auto;
+}
+
+@media (max-width: 799px) {
+    h3 {
+        font-size: 20px;
+    }
+    .inner-retailer {
+        display: block;
+    }
+    .retailer-name {
+        -webkit-text-fill-color: var(--text-color);
+        font-size: 1.2rem;
+        -webkit-text-stroke-width: 0;
+        color: var(--text-color);
+    }
+
+    .retailer-address, .retailer-phone {
+        font-size: 1.2rem;
+    }
+
+    .retailer-link {
+        font-size: 1.2rem;
+        text-shadow: 0px 0px 1px black;
+        background: linear-gradient(90deg, rgba(160,160,160,0.9) 90%, transparent);
+    }
+
+    .shipping-img {
+        width: 60px;
+    }
+
+    .retailer-logo {
+        margin-bottom: 10px;
+    }
+
+    .retailer-online-shipping {
+        right: -20px;
+        bottom: -20px;
+    }
+}

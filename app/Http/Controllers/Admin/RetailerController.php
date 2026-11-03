@@ -35,8 +35,15 @@ class RetailerController extends Controller
             'name' => 'required|max:64|string',
             'website' => 'string|max:256|nullable',
             'address' => 'string|max:256|nullable',
-            'priority' => 'integer|nullable'
+            'priority' => 'integer|nullable',
+            'phone_number' => 'string|max:32|nullable'
         ]);
+
+        if($request->has('shipping')) {
+            $validated['shipping'] = true;
+        } else {
+            $validated['shipping'] = false;
+        }
 
         $retailer = new Retailer($validated);
         $retailer->save();
@@ -73,8 +80,15 @@ class RetailerController extends Controller
             'name' => 'required|max:64|string',
             'website' => 'string|max:256|nullable',
             'address' => 'string|max:256|nullable',
-            'priority' => 'integer|nullable'
+            'priority' => 'integer|nullable',
+            'phone_number' => 'string|max:32|nullable'
         ]);
+
+        if($request->has('shipping')) {
+            $validated['shipping'] = true;
+        } else {
+            $validated['shipping'] = false;
+        }
 
         $retailer->update($validated);
 

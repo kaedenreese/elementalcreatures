@@ -21,6 +21,10 @@
                 <input type="textbox" id="website" name="website" value="{{ old('website') ?? $retailer->website }}">
                 <label for="priority">Retailer Priority</label>
                 <input type="textbox" id="priority" name="priority" required value="{{ old('priority') ?? $retailer->priority }}">
+                <label for="phone_number">Phone Number</label>
+                <input type="textbox" id="phone_number" name="phone_number" value="{{ old('phone_number') ?? $retailer->phone_number }}">
+                <label for="shipping">Shipping Available</label>
+                <input type="checkbox" id="shipping" name="shipping" {{ (old('shipping') ?? $retailer->shipping) ? 'checked' : '' }}>
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
                         <div class="error">{{ $error }}</div>

@@ -16,7 +16,8 @@ export default defineConfig({
                 'resources/css/style.css',
                 'resources/js/app.js',
                 'resources/js/gallery.js',
-                'resources/js/live.js'
+                'resources/js/live.js',
+                'resources/css/retailers.css'
             ],
             refresh: true,
             fonts: [
