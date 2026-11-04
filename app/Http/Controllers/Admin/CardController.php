@@ -50,7 +50,7 @@ class CardController extends Controller
             'cardsets' => $cardsets,
             'elements' => $elements,
             'species' => $species,
-            'effect_types' => $effect_types
+            'effect_types' => $effect_types,
         ]);
     }
 
@@ -65,6 +65,7 @@ class CardController extends Controller
             'effect' => 'required|string|max:1024',
             'number' => 'required|integer',
             'level' => 'required|integer',
+            'notes' => 'nullable|string|max:2048'
         ]);
 
         $validated['card_set_id'] = $request->card_set_id;
@@ -133,7 +134,8 @@ class CardController extends Controller
             'number' => 'required|integer',
             'level' => 'required|integer',
             'species_id' => 'required|integer',
-            'effect_type_id' => 'required|integer'
+            'effect_type_id' => 'required|integer',
+            'notes' => 'nullable|string|max:2048'
         ]);
 
         $card = Card::findOrFail($id);

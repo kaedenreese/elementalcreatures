@@ -48,6 +48,13 @@
                     @endforeach
                 </div>
 
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" oninput="updatePreview()">{{ old('notes') ?? $card->notes }}</textarea>
+
+                <label for="bbcode-preview">Notes Styling Preview</label>
+                <div id="bbcode-preview" style="margin-bottom: 10px; font-size: 14px;">
+                </div>
+
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
                         <div class="error">{{ $error }}</div>
@@ -57,4 +64,52 @@
             </form>
         </div>
     </main>
+    <script>
+       
+    function updatePreview() {
+        const notesInput = document.getElementById('notes');
+        const previewDiv = document.getElementById('bbcode-preview');
+        const bbcodeText = notesInput.value;
+        const htmlContent = bbcodeToHTML(bbcodeText);
+        previewDiv.innerHTML = htmlContent;
+    }
+
+    function bbcodeToHTML(text) {
+        if (typeof text !== 'string') {
+            return '';
+        }
+
+        // Escape HTML characters to prevent HTML injection.
+        text = text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+
+        // Basic formatting tags
+        text = text
+            .replace(/\[b\](.*?)\[\/b\]/gis, '<strong>$1</strong>')
+            .replace(/\[i\](.*?)\[\/i\]/gis, '<em>$1</em>')
+            .replace(/\[u\](.*?)\[\/u\]/gis, '<u>$1</u>')
+            .replace(/\[s\](.*?)\[\/s\]/gis, '<s>$1</s>');
+
+        // Convert unordered lists
+        text = text.replace(/\[list\]([\s\S]*?)\[\/list\]/gi, (match, content) => {
+            const items = content
+                .split(/\[\*\]/i)
+                .map(item => item.trim())
+                .filter(item => item.length > 0)
+                .map(item => `<li>${item}</li>`)
+                .join('');
+
+            return `<ul>${items}</ul>`;
+        });
+
+        // Convert line breaks
+        text = text.replace(/\r\n|\r|\n/g, '<br>');
+
+        return text;
+    }
+    </script>
 </body>

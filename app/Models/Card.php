@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-#[Fillable(['name', 'card_set_id', 'power', 'level', 'effect', 'number', 'effect_type_id', 'species_id'])]
+#[Fillable(['name', 'card_set_id', 'power', 'level', 'effect', 'number', 'effect_type_id', 'species_id', 'notes'])]
 class Card extends Model
 {
     public function elements(): BelongsToMany
