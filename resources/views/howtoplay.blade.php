@@ -213,7 +213,7 @@
                 <li><b>Retreat</b> - To move a Creature <i>you control</i> from <i>your</i> <span class="frontline">FRONTLINE</span> to <i>your</i> <span class="sideline">SIDELINE</span>.</li>
                 <li><b>Taunt</b> - To move an <i>opponent's</i> Creature from their <span class="sideline">SIDELINE</span> to <i>their</i> <span class="frontline">FRONTLINE</span>.</li>
                 <li><b>Teleport</b> - To shuffle a Creature into its owner's Deck.</li>
-                <li><b>Venture</b> - To look at the specified number of cards from the top of your Deck and, in an order of your choosing, put them back on top of on the bottom of the Deck.</li>
+                <li><b>Venture</b> - Look at the specified number of cards from the top of your deck, then put any number on top and the rest on the bottom in any order.</li>
                 <li><b>Withdraw</b> - To return a Creature <i>you control</i> from play to <i>your</i> hand.</li>
             </ul>
             <div class="return-to-top"><a href="#">Return to Top</a></div>
