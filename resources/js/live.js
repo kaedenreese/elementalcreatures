@@ -127,11 +127,12 @@ class Game {
         modify_score_wrapper.appendChild(decrease_round_score);
         modify_score_wrapper.appendChild(increase_round_score);
 
+        
+        if(flip) player_wrapper.appendChild(flip_button);
         player_wrapper.appendChild(player_name);
         player_wrapper.appendChild(player_game_score);
         player_wrapper.appendChild(player_round_score);
         player_wrapper.appendChild(modify_score_wrapper);
-        if(flip) player_wrapper.appendChild(flip_button);
 
         document.getElementById('app').appendChild(player_wrapper);
 
