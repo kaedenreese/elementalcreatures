@@ -117,7 +117,7 @@
             <div class="header-spacer" id="cardeffects"></div>
             <h2>Card Effects</h2>
             <ul>
-                <li><b>Ongoing Effects</b> are acknowledged after the creature is played. These Effects are constantly being applied to the board state of the game and apply while on the player's <span class="frontline">FRONLINE</span> and <span class="sideline">SIDELINE</span>.</li>
+                <li><b>Ongoing Effects</b> are acknowledged after the creature is played. These Effects are constantly being applied to the board state of the game and apply while on the player's <span class="frontline">FRONTLINE</span> and <span class="sideline">SIDELINE</span>.</li>
                 <li><b>Play Effects</b> happen the moment a creature enters play and resolve before the turn is passed.</li>
                 <li><b>Trigger Effects</b> are acknowledged after the creature is played (a creature can't trigger itself). Depending on the ruling of the specific Trigger Effect, these Effects only impact the game when referenced.</li>
             </ul>
