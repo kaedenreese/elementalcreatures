@@ -21,7 +21,7 @@
                 <img src="/images/cards/sets/2/fullsize/{{ $cards[1] }}.webp" class="img-fit" alt="Elemental Creature">
             </div>
             <div>
-                <div class="nav-button buy-now-button"><a href="https://4gsgames.com/collections/elemental-creatures" target="_blank">Available Now!</a></div>
+                <div class="nav-button buy-now-button"><a href="{{ route('retailers') }}" target="_blank">Available Now!</a></div>
             </div>
         </div>
     </main>
